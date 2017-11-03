@@ -1,4 +1,4 @@
-open Core.Std
+open Core
 
 let add_map () =
   ["1", 1; "2", 2]

@@ -1,4 +1,4 @@
-open Core.Std
+open Core
 
 type t = int String.Map.t
 

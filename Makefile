@@ -1,11 +1,11 @@
 build:
-	jbuilder build --workspace jbuild-workspace.dev @install
+	jbuilder build @install
 
 run: build
-	jbuilder exec --workspace jbuild-workspace.dev real_world
+	jbuilder exec  real_world
 
 run-demo: build
-	jbuilder exec --workspace jbuild-workspace.dev demo
+	jbuilder exec  demo
 
 test:
 	jbuilder runtest
