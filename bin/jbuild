@@ -4,4 +4,4 @@
 (executables (
   (names (real_world demo))
   (public_names (real_world demo))
-  (libraries (lib))))
+  (libraries (lib core))))
