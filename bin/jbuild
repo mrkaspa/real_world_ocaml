@@ -2,6 +2,6 @@
 (jbuild_version 1)
 
 (executables (
-  (names (real_world demo))
-  (public_names (real_world demo))
-  (libraries (lib core))))
+  (names (real_world demo csv_read))
+  (public_names (real_world demo csv_read))
+  (libraries (lib core csv))))

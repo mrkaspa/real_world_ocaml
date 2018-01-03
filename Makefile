@@ -2,10 +2,13 @@ build:
 	jbuilder build @install
 
 run: build
-	jbuilder exec  real_world
+	jbuilder exec real_world
 
 run-demo: build
-	jbuilder exec  demo
+	jbuilder exec demo
+
+run-csv: build
+	jbuilder exec csv_read
 
 test:
 	jbuilder runtest
