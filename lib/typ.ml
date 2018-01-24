@@ -50,7 +50,7 @@ module Logon = struct
 end
 
 let get_users logons =
-  List.dedup (List.map logons ~f:(fun x -> x.Logon.user))
+  List.dedup_and_sort (List.map logons ~f:(fun x -> x.Logon.user))
 
 let () =
   let session = create_session (Usernami.of_string "demo") (Hostname.of_string "host") in
