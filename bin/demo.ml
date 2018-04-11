@@ -8,18 +8,19 @@ let say_hello name =
 let lwt_process () =
   let request =
     let%lwt addresses = Lwt_unix.getaddrinfo "google.com" "80" [] in
-    let address = List.hd addresses in
-    match address with
-    | Some address ->
-      let google = Lwt_unix.(address.ai_addr) in
+    let compute =
+      Option.(List.hd addresses >>| (fun address ->
+          let google = Lwt_unix.(address.ai_addr) in
 
-      Lwt_io.(with_connection google (fun (incoming, outgoing) ->
-        let%lwt () = write outgoing "GET / HTTP/1.1\r\n" in
-        let%lwt () = write outgoing "Connection: close\r\n\r\n" in
-        let%lwt response = read incoming in
-        Lwt.return (Some response)))
-    | None ->
-      Lwt.return None
+          Lwt_io.(with_connection google (fun (incoming, outgoing) ->
+              let%lwt () = write outgoing "GET / HTTP/1.1\r\n" in
+              let%lwt () = write outgoing "Connection: close\r\n\r\n" in
+              let%lwt response = read incoming in
+              Lwt.return (Some response)))))
+    in
+    match compute with
+    | Some process -> process
+    | None -> Lwt.return None
   in
 
   let timeout =
