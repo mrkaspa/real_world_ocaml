@@ -13,7 +13,7 @@ let lwt_process () =
       let open Option in
       List.hd addresses
       >>| fun address ->
-      let google = Lwt_unix.(address.ai_addr) in
+      let google = address.ai_addr in
       let open Lwt_io in
       with_connection google (fun (incoming, outgoing) ->
           let%lwt () = write outgoing "GET / HTTP/1.1\r\n" in
