@@ -7,7 +7,7 @@ let run () =
     (fun acc arr -> Array.fold_left (+) acc arr) 0 mat
 
 let () =
-  let t = Sys.time() in
+  let t = Sys.time () in
   run () |> ignore;
-  let delta = Sys.time() -. t in
+  let delta = Sys.time () -. t in
   Printf.printf "Execution time: %fms\n" (delta *. 1000.0)
