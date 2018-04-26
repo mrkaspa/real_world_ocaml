@@ -11,7 +11,6 @@ let find_in_assoc n =
 let find_in_map () =
   let digit_map = Map.of_alist_exn (module Int) digit_alist
   in
-
   digit_map
   |> Map.set ~key:1 ~data: "one"
   |> (fun m -> Map.find m 1)
