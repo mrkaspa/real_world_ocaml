@@ -1,8 +1,6 @@
-let create_matrix n =
-  Array.make_matrix n n 0
-
 let run () =
-  let mat = create_matrix 1000 in
+  let n = 1000 in
+  let mat = Array.make_matrix n n 0 in
   Array.fold_left
     (fun acc arr -> Array.fold_left (+) acc arr) 0 mat
 
