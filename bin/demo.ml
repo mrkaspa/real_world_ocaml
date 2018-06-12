@@ -5,7 +5,6 @@ let say_hello name =
   let name = "michel" in
   print_string ("Hola mundo " ^ name ^ "\n")
 
-
 let lwt_process () =
   let request =
     let%lwt addresses = Lwt_unix.getaddrinfo "google.com" "80" [] in
@@ -32,7 +31,6 @@ let lwt_process () =
   | None ->
       prerr_endline "Request timed out" ;
       exit 1
-
 
 let () =
   for i = 0 to 10 do say_hello () done ;
