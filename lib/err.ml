@@ -3,10 +3,10 @@ open Core
 let safe_div n d =
   if d = 0 then Error (Error.of_string "d is 0") else Ok (n / d)
 
-
 exception DemoEx of string
 
-let unsafe_div n d = if d = 0 then raise (DemoEx "d is 0") else n / d
+let unsafe_div n d =
+  if d = 0 then raise (DemoEx "d is 0") else n / d
 
 let use_safe_div () =
   let open Result.Monad_infix in
