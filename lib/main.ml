@@ -39,7 +39,7 @@ type geom = Point of point2d | Circle of circle | Rect of rect
 let area_geom (geom: geom) =
   match geom with
   | Point _ -> 0.
-  | Circle {center= {x= x1; y= y1}; r} -> 3.1416 *. r ** 2.
+  | Circle {center= {x= _x1; y= _y1}; r} -> 3.1416 *. r ** 2.
   | Rect {p1= {x= x1; y= y1}; p2= {x= x2; y= y2}} -> x1 *. x2 *. y1 *. y2
 
 

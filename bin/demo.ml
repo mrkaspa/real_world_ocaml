@@ -1,8 +1,6 @@
 open Core
-open Lwt
 
 let say_hello name =
-  let name = "michel" in
   print_string ("Hola mundo " ^ name ^ "\n")
 
 let lwt_process () =
@@ -29,10 +27,10 @@ let lwt_process () =
   match Lwt_main.run (Lwt.pick [request; timeout]) with
   | Some response -> print_string response
   | None ->
-      prerr_endline "Request timed out" ;
-      exit 1
+    prerr_endline "Request timed out" ;
+    exit 1
 
 let () =
-  for i = 0 to 10 do say_hello () done ;
-  List.iter (List.range 1 10) (fun elem -> print_string (string_of_int elem)) ;
+  for i = 0 to 10 do say_hello (string_of_int i) done ;
+  List.iter ~f:(fun elem -> print_string (string_of_int elem)) (List.range 1 10) ;
   lwt_process ()
