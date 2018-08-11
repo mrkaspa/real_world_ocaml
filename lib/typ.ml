@@ -55,3 +55,14 @@ let get_users logons =
 let () =
   let session = create_session (Usernami.of_string "demo") (Hostname.of_string "host") in
   print_string ("The username is " ^ id_to_string (module Usernami) session.user)
+
+module Foo_and_bar : sig
+  type t = { foo: Int.Set.t; bar: string }
+  include Comparable.S with type t := t
+end = struct
+  module T = struct
+    type t = { foo: Int.Set.t; bar: string } [@@deriving sexp, compare]
+  end
+  include T
+  include Comparable.Make(T)
+end

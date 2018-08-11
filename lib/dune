@@ -1,3 +1,4 @@
 (library
   (name lib)
-  (libraries core sub))
+  (libraries core sub)
+  (preprocess (pps ppx_sexp_conv ppx_compare)))
