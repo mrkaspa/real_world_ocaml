@@ -1,7 +1,0 @@
-(jbuild_version 1)
-
-(executables (
-  (names (real_world demo csv_read mat))
-  (public_names (real_world demo csv_read mat))
-  (libraries (lib core lwt lwt_ppx lwt.unix csv))
-  (preprocess (pps (lwt_ppx)))))

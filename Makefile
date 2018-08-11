@@ -1,17 +1,17 @@
 build:
-	jbuilder build @install
+	dune build @install
 
 run: build
-	jbuilder exec real_world
+	dune exec real_world
 
 run-demo: build
-	jbuilder exec demo
+	dune exec demo
 
 run-csv: build
-	jbuilder exec csv_read
+	dune exec csv_read
 
 test:
-	jbuilder runtest
+	dune runtest
 
 pin:
 	opam pin add .
@@ -20,9 +20,9 @@ repin: build
 	opam upgrade real_world
 
 build-all:
-	jbuilder build --workspace jbuild-workspace.dev @install
+	dune build --workspace jbuild-workspace.dev @install
 
 test-all:
-	jbuilder build --workspace jbuild-workspace.dev @runtest
+	dune build --workspace jbuild-workspace.dev @runtest
 
 .PHONY: build test pin repin build-all test-all
