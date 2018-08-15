@@ -1,0 +1,9 @@
+
+(executable
+  (name test)
+  (libraries lib qcheck))
+
+(alias
+  (name runtest)
+  (deps test.exe)
+  (action (run %{deps} -q --color=always)))
