@@ -1,6 +1,7 @@
 open Core
 
-let add2 x = x + 2
+let add2 x =
+  x + 2
 
 let ratio ~x ~y = Float.of_int x /. Float.of_int y
 

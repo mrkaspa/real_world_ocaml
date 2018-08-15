@@ -8,12 +8,13 @@ bug-reports: ""
 dev-repo: ""
 license: ["ISC"]
 tags: []
-build: [["jbuilder" "build" "-p" name "-j" jobs]]
-build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+build: [["dune" "build" "-p" name "-j" jobs]]
+build-test: [["dune" "runtest" "-p" name "-j" jobs]]
 depends: [
   "jbuilder" {build}
   "core" {>= "0.11.1"}
   "lwt" {>= "4.0.0"}
   "lwt_ppx" {>= "1.2.0"}
   "csv" {>= "2.0"}
+  "qcheck" {>= "0.8"}
 ]
