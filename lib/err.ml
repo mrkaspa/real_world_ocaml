@@ -15,9 +15,8 @@ let use_safe_div () =
   | Error error -> printf "Err %s" (Error.to_string_hum error)
 
 let use_unsafe_div () =
-  try
-    let res = unsafe_div 1 0 in
-    printf "The res %d" res
-  with DemoEx msg -> printf "Err %s" msg
+  match unsafe_div 1 0 with
+  | res -> printf "The res %d" res
+  | exception DemoEx msg -> printf "Err %s" msg
 
 let () = use_unsafe_div ()
